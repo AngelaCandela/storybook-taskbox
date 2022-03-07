@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Task from "./Task";
 
@@ -57,3 +58,14 @@ const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
 };
 
 export default TaskList;
+
+TaskList.propTypes = {
+ loading: PropTypes.bool,
+ tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+ onPinTask: PropTypes.func,
+ onArchiveTask: PropTypes.func,
+};
+
+TaskList.defaultProps = {
+ loading: false,
+};
